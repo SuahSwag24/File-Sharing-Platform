@@ -1,0 +1,50 @@
+body
+{
+    margin: 10px;
+}
+
+.form-class
+{
+    display: flexbox;
+
+    width: 75%;
+
+    padding: 20px;
+    margin: 20px 10px;
+    
+    border: 2px black solid;
+}
+
+.form-class button, input
+{
+    margin: 10px;
+}
+
+.footer-credit
+{
+    position: fixed;
+    bottom: 0;
+
+    padding: 10px;
+    margin-left: -10px;
+
+    background-color: black;
+    color: white;
+
+    width:100%;
+}
+
+.login-form label, input, button
+{
+    display: block;
+}
+
+span
+{
+    display: block;
+}
+
+.error-text
+{
+    color: red;
+}

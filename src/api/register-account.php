@@ -14,7 +14,7 @@
                 die("Connection failed");
             }
             
-            $sql = "SELECT * FROM user WHERE Username = ?";
+            $sql = "SELECT * FROM user WHERE username = ?";
             $checkUser = $conn->prepare($sql);
             $checkUser->bind_param("s", $username);
             $checkUser->execute();
@@ -28,7 +28,7 @@
             {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO user (Username, Password) VALUES (?, ?)";
+                $sql = "INSERT INTO user (username, password) VALUES (?, ?)";
                 $insertStmt = $conn->prepare($sql);
                 $insertStmt->bind_param("ss", $username, $hashedPassword);
 

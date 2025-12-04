@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     if($_SERVER['REQUEST_METHOD'] === "POST")
     {
@@ -15,7 +16,7 @@
                 die("Connection failed");
             }
 
-            $sql = "SELECT * FROM User WHERE Username = ?";
+            $sql = "SELECT * FROM User WHERE username = ?";
             $checkUser = $conn->prepare($sql);
             $checkUser->bind_param("s", $username);
             $checkUser->execute();
@@ -26,7 +27,11 @@
                 $row = $result->fetch_assoc();
                 if(password_verify($password, $row['Password']))
                 {
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['userID'] = $row['user_id'];
+
                     header("Location: ../home.php?msg=login_success");
+                    exit;
                 }
                 else
                 {
@@ -41,5 +46,5 @@
     }
 
     $conn->close();
-
+    exit;
 ?>
